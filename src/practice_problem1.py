@@ -140,7 +140,7 @@ class Box(object):
           :type additional_contents: str
         """
         # --------------------------------------------------------------
-        # TODO: 3. Implement and test this function.
+        # DONE: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -162,20 +162,30 @@ class Box(object):
         #    and continue working on the problem.
         # --------------------------------------------------------------
 
-        space = self.volume - len(self.contents)
-        number_appended = min(space, len(additional_contents))
+        # space = self.volume - len(self.contents)
+        # number_appended = min(space, len(additional_contents))
+        #
+        # new_contents = ''
+        # for k in range(number_appended):
+        #     new_contents = new_contents + additional_contents[k]
+        #
+        # self.contents = self.contents + new_contents
+        #
+        # returning = ''
+        # for k in range(number_appended, len(additional_contents)):
+        #     returning = returning + additional_contents[k]
+        #
+        # return returning
 
-        new_contents = ''
-        for k in range(number_appended):
-            new_contents = new_contents + additional_contents[k]
+        remaining_contents = ''
+        for k in range(len(additional_contents)):
+            if len(self.contents) < self.volume:
+                self.contents = self.contents + additional_contents[k]
+            else:
+                remaining_contents = remaining_contents + additional_contents[k]
 
-        self.contents = self.contents + new_contents
+        return remaining_contents
 
-        returning = ''
-        for k in range(number_appended, len(additional_contents)):
-            returning = returning + additional_contents[k]
-
-        return returning
 
 
 
@@ -226,7 +236,9 @@ class Box(object):
         #    ** TWO **   LINES OF CODE.
         ################################################################
 
-        
+        self.contents = self.append_string(self.contents)
+        return self.contents
+
 
     def shrink(self, new_volume):
         """
