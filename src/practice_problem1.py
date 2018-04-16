@@ -162,6 +162,23 @@ class Box(object):
         #    and continue working on the problem.
         # --------------------------------------------------------------
 
+        space = self.volume - len(self.contents)
+        number_appended = min(space, len(additional_contents))
+
+        new_contents = ''
+        for k in range(number_appended):
+            new_contents = new_contents + additional_contents[k]
+
+        self.contents = self.contents + new_contents
+
+        returning = ''
+        for k in range(number_appended, len(additional_contents)):
+            returning = returning + additional_contents[k]
+
+        return returning
+
+
+
     def double(self):
         """
         What comes in:
@@ -208,6 +225,8 @@ class Box(object):
         # FOR FULL CREDIT, YOUR SOLUTION MUST BE NO MORE THAN
         #    ** TWO **   LINES OF CODE.
         ################################################################
+
+        
 
     def shrink(self, new_volume):
         """
