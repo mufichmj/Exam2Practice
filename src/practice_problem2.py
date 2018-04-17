@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 2.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Mariah Mufich.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -56,6 +56,31 @@ def run_test_practice_problem2a():
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
 
+    # Test 1
+    expected = [8, 16, 11, -14, 14]
+    actual = practice_problem2a([2, 10, 5, -20, 8], 6)
+    print('test 1 expected', expected)
+    print('test 1 actual', actual)
+
+    # Test 2
+    expected = [10, 20, 30, 40, 50]
+    actual = practice_problem2a([4, 14, 24, 34, 44], 6)
+    print('test 2 expected', expected)
+    print('test 2 actual', actual)
+
+    # Test 3
+    expected = [8, 16, 11, 26, 14]
+    actual = practice_problem2a([2, 10, 5, 20, 8], 6)
+    print('test 3 expected', expected)
+    print('test 3 actual', actual)
+
+    # Test 4
+    expected = [8, 16, 11, 0, 14]
+    actual = practice_problem2a([2, 10, 5, -6, 8], 6)
+    print('test 4 expected', expected)
+    print('test 4 actual', actual)
+
+
 
 def practice_problem2a(sequence, delta):
     """
@@ -83,7 +108,10 @@ def practice_problem2a(sequence, delta):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ####################################################################
-
+    seq = sequence
+    for k in range(len(seq)):
+        seq[k] = seq[k] + delta
+    return seq
 
 def run_test_practice_problem2b():
     """ Tests the   practice_problem2b  function. """
