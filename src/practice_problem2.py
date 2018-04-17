@@ -177,7 +177,6 @@ def run_test_practice_problem2b():
     # ------------------------------------------------------------------
     st.SimpleTestCase.run_tests('practice_problem2b', tests)
 
-
 def practice_problem2b(sequence):
     """
     What comes in:
