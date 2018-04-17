@@ -102,13 +102,18 @@ class Box(object):
         #    DIFFICULTY:      3
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
+
+        self.original_contents = contents
+        self.original_volume = volume
+
+        self.content_history = []
+
         self.contents = contents
         self.volume = volume
         if len(self.contents) > self.volume:
             self.contents = ''
 
-        self.original_contents = contents
-        self.original_volume = volume
+
         
 
     def append_string(self, additional_contents):
@@ -350,8 +355,8 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
 
-        count = len(self.double() + len(self.shrink(new_volume)))
-        return count
+        # count = len(self.double() + len(self.shrink(new_volume)))
+        # return count
 
 
     def reset(self):
@@ -373,6 +378,7 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
 
+        self.content_history.append(self.contents)
         self.contents = self.original_contents
         self.volume = self.original_volume
 
@@ -396,7 +402,7 @@ class Box(object):
           :type other_box: Box
         """
         # --------------------------------------------------------------
-        # TODO: 8. Implement and test this function.
+        # DONE: 8. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -453,6 +459,7 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
 
+        return self.content_history
 
 
     def combined_box(self, other_box):
@@ -481,6 +488,10 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
 
+        x = self.contents + other_box.contents
+        y = self.volume + other_box.volume
+
+        return Box(x,y)
 
 ########################################################################
 # The TEST functions for the  Box  class begin here.
